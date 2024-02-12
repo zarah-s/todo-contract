@@ -32,4 +32,9 @@ contract MyTodo {
             })
         );
     }
+
+    function changeStatus(uint256 _id, Status _status) external {
+        Todo storage todo = todos[_id - 1];
+        todo.status = _status;
+    }
 }
