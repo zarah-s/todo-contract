@@ -17,4 +17,19 @@ contract MyTodo {
         uint256 timestamp;
         Status status;
     }
+
+    function createTodo(
+        string calldata _title,
+        string calldata _description
+    ) external {
+        todos.push(
+            Todo({
+                id: todos.length + 1,
+                title: _title,
+                description: _description,
+                timestamp: block.timestamp,
+                status: Status.Idle
+            })
+        );
+    }
 }
