@@ -37,4 +37,14 @@ contract MyTodo {
         Todo storage todo = todos[_id - 1];
         todo.status = _status;
     }
+
+    modifier validateId(uint _id) {
+        require(_id > 0, "Invalid id");
+        require(_id - 1 < todos.length, "Invalid id");
+        _;
+    }
+
+    function deleteTodo(uint _id) external validateId(_id) {
+        delete todos[_id - 1];
+    }
 }
