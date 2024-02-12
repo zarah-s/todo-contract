@@ -47,4 +47,8 @@ contract MyTodo {
     function deleteTodo(uint _id) external validateId(_id) {
         delete todos[_id - 1];
     }
+
+    function getTodos() external view returns (Todo[] memory) {
+        return todos;
+    }
 }
