@@ -50,6 +50,14 @@ contract MyTodo {
     }
 
     function getTodos() external view returns (Todo[] memory) {
-        return todos;
+        Todo[] memory todos_ = new Todo[](todos.length - deleted);
+        uint256 _count;
+        for (uint256 i = 0; i < todos.length; i++) {
+            if (todos[i].timestamp != 0) {
+                todos_[_count] = todos[i];
+                _count++;
+            }
+        }
+        return todos_;
     }
 }
