@@ -53,6 +53,7 @@ describe("MyTodo", function () {
       const todos = await myTodo.getTodos();
       console.log(todos);
       expect(todos).with.lengthOf(0);
+      expect(await myTodo.deleted).eq(1);
 
       // expect(todos[0][0]).eq(0);
       // expect(todos[0][1]).eq(0);
