@@ -51,14 +51,11 @@ describe("MyTodo", function () {
       await myTodo.createTodo("code", "Code");
       await myTodo.deleteTodo(1);
       const todos = await myTodo.getTodos();
-      console.log(todos);
+      const deleteCount = await myTodo.deleted();
       expect(todos).with.lengthOf(0);
-      expect(await myTodo.deleted).eq(1);
+      expect(deleteCount).eq(1);
 
-      // expect(todos[0][0]).eq(0);
-      // expect(todos[0][1]).eq(0);
-      // expect(todos[0][2]).eq(0);
-      // expect(todos[0][4]).eq(0);
+
 
     });
 
