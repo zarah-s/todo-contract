@@ -3,7 +3,7 @@ pragma solidity ^0.8.8;
 
 contract MyTodo {
     Todo[] todos;
-
+    uint256 public deleted;
     enum Status {
         Idle,
         Pending,
@@ -46,6 +46,7 @@ contract MyTodo {
 
     function deleteTodo(uint _id) external validateId(_id) {
         delete todos[_id - 1];
+        deleted++;
     }
 
     function getTodos() external view returns (Todo[] memory) {
